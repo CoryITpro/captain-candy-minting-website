@@ -1,3 +1,5 @@
-const Dashboard = () => <div>Dashboard</div>
+import DashboardComponent from "components/Dashboard"
+
+const Dashboard = () => <DashboardComponent />
 
 export default Dashboard
