@@ -1,4 +1,4 @@
-@import "../resources/Fonts/AktivGroteskCorp/style.scss";
+@import "../resources/Fonts/AktivGroteskCd/style.scss";
 @import "../resources/Fonts/KomikaAxis/style.scss";
 @import "../resources/Fonts/AddressSansPro/style.scss";
 @import "./variables.scss";
@@ -11,6 +11,13 @@ body {
   outline: 0;
   padding: 0;
   background-color: $black;
+}
+
+#root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 * {
@@ -29,8 +36,4 @@ body {
 .container {
   width: 90%;
   max-width: 1280px;
-
-  @media (max-width: 768px) {
-    width: 94%;
-  }
 }
