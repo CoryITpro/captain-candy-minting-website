@@ -5,11 +5,11 @@ import NeonDecoration from "./Neon_Decoration.png"
 import SneakPeak from "./Sneak_Peak.png"
 import SuperkrassLogo from "./Superkrass_Logo.png"
 
-export default {
+export {
+  SuperkrassLogo,
   BannerMascot,
   CaptainCandyFaceRadial,
   CaptainCandyInnerShadow,
   NeonDecoration,
   SneakPeak,
-  SuperkrassLogo,
 }
