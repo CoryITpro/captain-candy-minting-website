@@ -1,0 +1,87 @@
+@import "../../styles/variables.scss";
+
+.navbar {
+  padding: 48px 0 0;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+
+  &-logo {
+    width: 240px;
+
+    & > img {
+      width: 100%;
+    }
+  }
+
+  &-links {
+    // Coming Soon Version
+    display: none;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+
+    &-anchor {
+      color: $white;
+      font-family: "Komika Axis";
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        color: $pink;
+      }
+
+      &:not(:last-child) {
+        margin-right: 24px;
+      }
+    }
+  }
+
+  &-button {
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    & > button {
+      color: $white;
+      padding: 0 24px 4px;
+      font-size: 24px;
+      white-space: nowrap;
+      font-family: "Komika Axis";
+      background-color: $black;
+      border: 2px solid $pink;
+      border-radius: 8px;
+      box-shadow: 0 0 12px rgba($color: $pink, $alpha: 0.8);
+      // cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        box-shadow: 0 0 32px rgba($color: $pink, $alpha: 0.8);
+      }
+    }
+  }
+
+  &-collapse {
+    display: none;
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+
+    & > button {
+      color: $white;
+      padding: 8px 16px;
+      font-size: 24px;
+      background-color: $black;
+      border: 2px solid $pink;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba($color: $pink, $alpha: 0.8);
+      cursor: pointer;
+
+      &:hover {
+        color: $pink;
+      }
+    }
+  }
+}
