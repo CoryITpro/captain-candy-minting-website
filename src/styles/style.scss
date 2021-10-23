@@ -1,0 +1,36 @@
+@import "../resources/Fonts/AktivGroteskCorp/style.scss";
+@import "../resources/Fonts/KomikaAxis/style.scss";
+@import "../resources/Fonts/AddressSansPro/style.scss";
+@import "./variables.scss";
+
+html,
+body {
+  width: 100%;
+  border: 0;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  background-color: $black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.container {
+  width: 90%;
+  max-width: 1280px;
+
+  @media (max-width: 768px) {
+    width: 94%;
+  }
+}

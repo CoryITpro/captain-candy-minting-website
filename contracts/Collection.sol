@@ -17,19 +17,16 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
 
     Counters.Counter private _tokenIdTracker;
 
-    bool public SALE_OPEN = false;
+    bool public SALE_OPEN;
 
-    uint256 private constant PRICE = 69 * 10**15; // 0.069ETH Per Nipple
-    uint256 private constant PRICE_PRESALE = 5 * 10**16; // 0.05ETH Per Nipple
-    uint256 private constant PRICE_PREMINT = 0; // Free Per Nipple
+    uint256 private constant PRICE = 2 * 10**2 * 10**18; // 200 Matic Captain Candy
+    uint256 private constant PRICE_PRESALE = 15 * 10 * 10**18; // 150 Matic Per Captain Candy
 
-    uint256 private constant MAX_ELEMENTS = 4444; // 4444 Nipples for Entire Collection.
-    uint256 private constant MAX_ELEMENTS_PRESALE = 444; // 444 Nipples for Pre Sale.
-    uint256 private constant MAX_ELEMENTS_PREMINT = 30; // 30 Nipples for GiveAway.
+    uint256 private constant MAX_ELEMENTS = 10000; // 10,000 Captain Candies for Entire Collection.
+    uint256 private constant MAX_ELEMENTS_PRESALE = 1500; // 1,500 Captain Candies for Pre-Sale.
 
     uint256 private constant MAX_MINT = 20; // Upper Limit per Mint is 20
     uint256 private constant MAX_MINT_PRESALE = 5; // Upper Limit per Mint is 5
-    uint256 private constant MAX_MINT_PREMINT = 28; // Upper Limit per Mint is 28
 
     uint256 private _price;
     uint256 private _maxElements;
@@ -43,11 +40,14 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
 
     string private baseTokenURI;
 
+    address private developerAddress = 0x95b00EA68A1BA40096d825922AFf25570cC5bc69;
+    address private designerAddress = 0xB1A37DE9227eB305eCAD81A6C0a10eBE36C50653;
+
     event OnePieceCreated(address to, uint256 indexed id);
 
     modifier saleIsOpen {
         if (_msgSender() != owner()) {
-            require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Nipples ;)");
+            require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Captain Candy ;)");
         }
         require(_totalSupply() <= MAX_ELEMENTS, "SALES: Sale end");
 
@@ -57,12 +57,10 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
         _;
     }
 
-    constructor (string memory baseURI) ERC721("Nippleverse", "NIP") {
+    constructor (string memory baseURI) ERC721("Captain Candy", "CC") {
         setBaseURI(baseURI);
 
-        _price = PRICE_PREMINT;
-        _maxElements = MAX_ELEMENTS_PREMINT;
-        _maxMint = MAX_MINT_PREMINT;
+        SALE_OPEN = false;
     }
 
     function mint(address payable _to, uint256[] memory _ids) public payable saleIsOpen {
@@ -73,11 +71,11 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
         }
 
         require(total + _ids.length <= _maxElements, "MINT: Current count exceeds maximum element count.");
-        require(total <= _maxElements, "MINT: Please go to the Opensea to buy NippleVerse.");
+        require(total <= _maxElements, "MINT: Please go to the Opensea to buy Captain Candy.");
         require(_ids.length <= _maxMint, "MINT: Current count exceeds maximum mint count.");
 
         if (_to != owner()) {
-            require(msg.value >= price(_ids.length), "MINT: Current value is below the sales price of NippleVerse");
+            require(msg.value >= price(_ids.length), "MINT: Current value is below the sales price of Captain Candy");
         }
 
         for (uint256 i = 0; i < _ids.length; i++) {
@@ -88,7 +86,7 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
             _mintAnElement(_to, _ids[i]);
         }
 
-        _widthdraw(owner(), address(this).balance);
+        withdrawAll();
     }
 
     function _mintAnElement(address payable _to, uint256 _id) private {
@@ -106,7 +104,7 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
         SALE_OPEN = true;
 
         _price = PRICE_PRESALE;
-        _maxElements = MAX_ELEMENTS_PRESALE + MAX_ELEMENTS_PREMINT;
+        _maxElements = MAX_ELEMENTS_PRESALE;
         _maxMint = MAX_MINT_PRESALE;
     }
 
@@ -184,6 +182,11 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
         uint256 balance = address(this).balance;
         require(balance > 0, "WITHDRAW: No balance in contract");
 
+        // Withdraw 4% to developer Address.
+        _widthdraw(developerAddress, balance.mul(4).div(10**2));
+        // Withdraw 3.5% to designer Address.
+        _widthdraw(designerAddress, balance.mul(35).div(10**3));
+        // Withdraw 92.5% to owner Address.
         _widthdraw(owner(), address(this).balance);
     }
 
