@@ -15,7 +15,7 @@ const Hero = () => (
       </p>
       <p>
         Each Captain is completely unique, created using over 100 individual
-        features.
+        features. JOIN OUR DISCORD TO GET NOTIFIED ABOUT LAUNCH DATES.
       </p>
       <div className="hero-caption-buttons">
         <button>READ MORE</button>
