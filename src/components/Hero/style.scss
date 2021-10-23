@@ -1,0 +1,83 @@
+@import "../../styles/variables.scss";
+
+.hero {
+  padding: 64px 0;
+  width: 100% !important;
+  justify-content: center;
+  background-image: url("../../resources/Images/Banner_Mascot.png");
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 32px rgba($color: $black, $alpha: 1);
+
+  &-caption {
+    width: 90%;
+
+    &-title {
+      align-items: center;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+
+      & > img {
+        border-radius: 50%;
+        width: 72px;
+        margin-right: 24px;
+      }
+
+      & > span {
+        color: $white;
+        font-size: 48px;
+        font-family: "Komika Axis";
+        margin-bottom: 8px;
+      }
+    }
+
+    & > p {
+      width: 60%;
+      color: $white;
+      font-family: "Aktiv Grotesk Cd";
+      font-size: 30px;
+      font-weight: bold;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    &-buttons {
+      padding: 32px 0 0;
+
+      & > button {
+        color: $white;
+        font-family: "Komika Axis";
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 16px 48px;
+
+        &:first-child {
+          border: 2px solid $pink;
+          background-color: $black;
+          box-shadow: 0 0 12px rgba($color: $pink, $alpha: 0.8);
+          margin-right: 32px;
+
+          &:hover {
+            box-shadow: 0 0 32px rgba($color: $pink, $alpha: 0.8);
+          }
+        }
+
+        &:last-child {
+          border: 2px solid $blue;
+          background-color: $blue;
+          box-shadow: 0 0 12px rgba($color: $blue, $alpha: 0.8);
+
+          &:hover {
+            box-shadow: 0 0 32px rgba($color: $blue, $alpha: 0.8);
+          }
+        }
+      }
+    }
+  }
+}
