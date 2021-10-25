@@ -15,11 +15,7 @@ const Footer = () => (
       <a href="https://discord.gg/FGf8n8naQB" target="_blank" rel="noreferrer">
         <FontAwesomeIcon icon={faDiscord} />
       </a>
-      <a
-        href="https://twitter.com/captain_candy"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://twitter.com/krassnft" target="_blank" rel="noreferrer">
         <FontAwesomeIcon icon={faTwitter} />
       </a>
     </div>

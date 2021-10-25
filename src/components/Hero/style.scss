@@ -24,13 +24,30 @@
         border-radius: 50%;
         width: 72px;
         margin-right: 24px;
+
+        @media (max-width: 768px) {
+          width: 56px;
+        }
+
+        @media (max-width: 425px) {
+          width: 48px;
+        }
       }
 
       & > span {
         color: $white;
         font-size: 48px;
         font-family: "Komika Axis";
+        white-space: nowrap;
         margin-bottom: 8px;
+
+        @media (max-width: 768px) {
+          font-size: 36px;
+        }
+
+        @media (max-width: 425px) {
+          font-size: 32px;
+        }
       }
     }
 

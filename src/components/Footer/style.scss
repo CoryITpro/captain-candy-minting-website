@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 
 .footer {
-  padding: 64px 0 128px;
+  padding: 64px 0;
   justify-content: center;
 
   &-logo {
@@ -19,6 +19,14 @@
     justify-content: center;
     font-size: 24px;
     font-family: "Aktiv Grotesk Cd";
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 18px;
+    }
   }
 
   &-links {
@@ -42,6 +50,14 @@
 
       &:last-child {
         background-color: $blue-twitter;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 56px;
+      }
+
+      @media (max-width: 425px) {
+        font-size: 48px;
       }
     }
   }
