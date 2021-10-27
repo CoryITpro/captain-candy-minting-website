@@ -27,7 +27,7 @@ const Navbar = () => (
       ))}
     </div>
     <div className="navbar-button">
-      <button>COMING SOON</button>
+      <button>CONNECT WALLET</button>
     </div>
     <div className="navbar-collapse">
       <button>

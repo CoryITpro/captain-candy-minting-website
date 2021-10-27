@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+
+.roadmap {
+  padding: 32px 0;
+  align-items: center;
+
+  &-title {
+    color: $white;
+    font-size: 48px;
+    font-family: "Komika Axis";
+    white-space: nowrap;
+    margin-bottom: 8px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 32px;
+    }
+  }
+
+  &-wrapper {
+    color: $white;
+    font-size: 48px;
+    font-family: "Komika Axis";
+    white-space: nowrap;
+    margin-bottom: 8px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 32px;
+    }
+  }
+}

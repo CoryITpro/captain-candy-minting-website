@@ -1,0 +1,69 @@
+@import "../../styles/variables.scss";
+
+.collection {
+  padding: 64px 0;
+  margin: 64px 0;
+  width: 100% !important;
+  justify-content: center;
+  background-image: url("../../resources/Images/Sneak_Peak.png");
+  background-size: contain;
+  background-position: -90px center;
+  background-repeat: no-repeat;
+  box-shadow: inset 0 0 32px rgba($color: $black, $alpha: 1);
+
+  @media (max-width: 425px) {
+    padding: 64px 0 0;
+  }
+
+  &-caption {
+    width: 80%;
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+
+    &-title {
+      align-items: center;
+      justify-content: flex-end;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
+
+      & > span {
+        width: 50%;
+        color: $white;
+        font-size: 30px;
+        font-family: "Komika Axis";
+        white-space: nowrap;
+        margin-bottom: 8px;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          text-align: center;
+          font-size: 28px;
+        }
+
+        @media (max-width: 425px) {
+          font-size: 24px;
+        }
+      }
+    }
+
+    &-contents {
+      align-items: flex-end;
+
+      & > p {
+        width: 50%;
+        color: $white;
+        font-family: "Aktiv Grotesk Cd";
+        font-size: 20px;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

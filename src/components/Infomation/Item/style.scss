@@ -1,0 +1,39 @@
+@import "../../../styles/variables.scss";
+
+.item {
+  border: 2px solid $pink;
+  border-radius: 50%;
+  margin: 8px;
+  box-shadow: 0 0 8px rgba($color: $blue, $alpha: 1);
+  min-height: 170px;
+
+  &-inner {
+    height: 100%;
+    width: 100%;
+    padding: 32px 48px;
+    box-shadow: inset 0 0 8px rgba($color: $blue, $alpha: 1);
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+
+    & > span {
+      color: $white;
+      text-align: center;
+
+      & > svg {
+        font-size: 48px;
+      }
+
+      &:first-child {
+        font-family: "Komika Axis";
+        margin-bottom: 12px;
+        font-size: 18px;
+      }
+
+      &:last-child {
+        font-family: "Aktiv Grotesk Cd";
+        font-size: 12px;
+      }
+    }
+  }
+}

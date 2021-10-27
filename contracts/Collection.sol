@@ -23,7 +23,7 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
     uint256 private constant PRICE_PRESALE = 15 * 10 * 10**18; // 150 Matic Per Captain Candy
 
     uint256 private constant MAX_ELEMENTS = 10000; // 10,000 Captain Candies for Entire Collection.
-    uint256 private constant MAX_ELEMENTS_PRESALE = 1500; // 1,500 Captain Candies for Pre-Sale.
+    uint256 private constant MAX_ELEMENTS_PRESALE = 600; // 1,500 Captain Candies for Pre-Sale.
 
     uint256 private constant MAX_MINT = 20; // Upper Limit per Mint is 20
     uint256 private constant MAX_MINT_PRESALE = 5; // Upper Limit per Mint is 5

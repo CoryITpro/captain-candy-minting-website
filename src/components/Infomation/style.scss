@@ -1,0 +1,48 @@
+@import "../../styles/variables.scss";
+
+.information {
+  padding: 16px 0;
+  align-items: center;
+
+  &-title {
+    width: 100%;
+    color: $white;
+    font-size: 48px;
+    font-family: "Komika Axis";
+    margin-bottom: 32px;
+    text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 36px;
+      white-space: normal;
+    }
+
+    @media (max-width: 425px) {
+      font-size: 32px;
+    }
+  }
+
+  &-wrapper {
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr 1fr;
+    column-gap: 32px;
+    row-gap: 32px;
+
+    @media (max-width: 768px) {
+      justify-items: center;
+      grid-template: auto / 1fr 1fr;
+
+      & > div {
+        width: 80%;
+      }
+    }
+
+    @media (max-width: 425px) {
+      grid-template: auto / 1fr;
+
+      & > div {
+        width: 80%;
+      }
+    }
+  }
+}

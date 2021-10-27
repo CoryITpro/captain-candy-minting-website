@@ -15,9 +15,6 @@
   }
 
   &-links {
-    // Coming Soon Version
-    display: none;
-
     @media (max-width: 1024px) {
       display: none;
     }
@@ -39,7 +36,7 @@
   }
 
   &-button {
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       display: none;
     }
 
@@ -53,7 +50,7 @@
       border: 2px solid $pink;
       border-radius: 8px;
       box-shadow: 0 0 12px rgba($color: $pink, $alpha: 0.8);
-      // cursor: pointer;
+      cursor: pointer;
       transition: 0.3s;
 
       &:hover {
@@ -65,8 +62,7 @@
   &-collapse {
     display: none;
 
-    @media (max-width: 768px) {
-      // display: none;
+    @media (max-width: 1024px) {
       display: flex;
     }
 
