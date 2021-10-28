@@ -4,10 +4,15 @@ import { CaptainCandyInnerShadow } from "resources/Images"
 import "./style.scss"
 
 const Mint = ({
+  mintLoading,
   mintInputValue,
   increaseMintValue,
   decreaseMintValue,
-  loading = true,
+  walletAddress,
+  onConnectWalletHandler,
+  mintNFT = () => {
+    console.log("Minted!")
+  },
 }) => (
   <div className="mint container flex">
     <div className="mint-wrapper flex flex-column">
@@ -26,8 +31,8 @@ const Mint = ({
         COST OF NFT: <i>{0.086} ETH</i>
       </div>
       <div className="mint-wrapper-minter flex">
-        <button className="flex">
-          {loading ? (
+        <button className="flex" onClick={() => !mintLoading && mintNFT()}>
+          {mintLoading ? (
             <>
               <FontAwesomeIcon icon={faSpinner} />
               <span>MINTING</span>
@@ -42,13 +47,13 @@ const Mint = ({
           <button onClick={increaseMintValue}>+</button>
         </div>
       </div>
-      {true && (
+      {walletAddress === "" && (
         <div className="mint-wrapper-connect flex flex-column">
           <p>
             YOU NEED TO CONNECT YOUR WALLET OR YOU WILL NOT BE ABLE TO MINT.
             PLEASE CONNECT YOUR WALLET!
           </p>
-          <button>CONNECT WALLET</button>
+          <button onClick={onConnectWalletHandler}>CONNECT WALLET</button>
         </div>
       )}
     </div>

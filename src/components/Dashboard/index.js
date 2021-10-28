@@ -10,20 +10,29 @@ import Footer from "components/Footer"
 import "./style.scss"
 
 const Dashboard = ({
+  mintLoading,
   mintInputValue,
   increaseMintValue,
   decreaseMintValue,
+  walletAddress,
+  onConnectWalletHandler,
 }) => (
   <>
-    <Navbar />
+    <Navbar
+      walletAddress={walletAddress}
+      onConnectWalletHandler={onConnectWalletHandler}
+    />
     <Hero />
     <JoinDiscord />
     <Collection />
     <Information />
     <Mint
+      mintLoading={mintLoading}
       mintInputValue={mintInputValue}
       increaseMintValue={increaseMintValue}
       decreaseMintValue={decreaseMintValue}
+      walletAddress={walletAddress}
+      onConnectWalletHandler={onConnectWalletHandler}
     />
     <Roadmap />
     <JoinDiscord />

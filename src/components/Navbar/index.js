@@ -5,7 +5,7 @@ import { SuperkrassLogo } from "resources/Images"
 import { LINKS } from "constants/links"
 import "./style.scss"
 
-const Navbar = () => (
+const Navbar = ({ walletAddress, onConnectWalletHandler }) => (
   <div className="navbar container flex">
     <div className="navbar-logo">
       <img src={SuperkrassLogo} alt="logo" />
@@ -27,7 +27,11 @@ const Navbar = () => (
       ))}
     </div>
     <div className="navbar-button">
-      <button>CONNECT WALLET</button>
+      <button onClick={() => walletAddress === "" && onConnectWalletHandler()}>
+        {walletAddress !== ""
+          ? walletAddress.slice(0, 6) + " ... " + walletAddress.slice(38)
+          : "CONNECT WALLET"}
+      </button>
     </div>
     <div className="navbar-collapse">
       <button>
