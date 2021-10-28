@@ -70,6 +70,7 @@
         font-family: "Komika Axis";
         cursor: pointer;
         margin-right: 24px;
+        justify-content: center;
 
         &:hover {
           box-shadow: 0 0 16px rgba($color: $white, $alpha: 0.8);
@@ -77,6 +78,15 @@
 
         &:active {
           box-shadow: 0 0 8px rgba($color: $white, $alpha: 0.8);
+        }
+
+        & > svg {
+          font-size: 24px;
+          animation: spin 1s ease-in-out infinite;
+        }
+
+        & > span {
+          margin-left: 16px;
         }
       }
 
@@ -169,5 +179,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

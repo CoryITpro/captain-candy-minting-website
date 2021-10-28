@@ -1,7 +1,14 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 import { CaptainCandyInnerShadow } from "resources/Images"
 import "./style.scss"
 
-const Mint = ({ mintInputValue, increaseMintValue, decreaseMintValue }) => (
+const Mint = ({
+  mintInputValue,
+  increaseMintValue,
+  decreaseMintValue,
+  loading = true,
+}) => (
   <div className="mint container flex">
     <div className="mint-wrapper flex flex-column">
       <div className="mint-wrapper-caption">JOIN THE CANDYVERSE</div>
@@ -19,7 +26,16 @@ const Mint = ({ mintInputValue, increaseMintValue, decreaseMintValue }) => (
         COST OF NFT: <i>{0.086} ETH</i>
       </div>
       <div className="mint-wrapper-minter flex">
-        <button>MINT NOW!</button>
+        <button className="flex">
+          {loading ? (
+            <>
+              <FontAwesomeIcon icon={faSpinner} />
+              <span>MINTING</span>
+            </>
+          ) : (
+            "MINT NOW!"
+          )}
+        </button>
         <div className="mint-wrapper-minter-selector flex">
           <button onClick={decreaseMintValue}>-</button>
           <div className="flex">{mintInputValue}</div>
