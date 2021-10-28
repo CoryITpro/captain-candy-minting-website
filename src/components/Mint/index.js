@@ -21,9 +21,9 @@ const Mint = ({ mintInputValue, increaseMintValue, decreaseMintValue }) => (
       <div className="mint-wrapper-minter flex">
         <button>MINT NOW!</button>
         <div className="mint-wrapper-minter-selector flex">
-          <span onClick={increaseMintValue}>-</span>
+          <button onClick={decreaseMintValue}>-</button>
           <div className="flex">{mintInputValue}</div>
-          <span onClick={decreaseMintValue}>+</span>
+          <button onClick={increaseMintValue}>+</button>
         </div>
       </div>
       {true && (

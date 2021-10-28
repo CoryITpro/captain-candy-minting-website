@@ -17,16 +17,19 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
 
     Counters.Counter private _tokenIdTracker;
 
-    bool public SALE_OPEN;
+    bool public SALE_OPEN = false;
 
     uint256 private constant PRICE = 2 * 10**2 * 10**18; // 200 Matic Captain Candy
     uint256 private constant PRICE_PRESALE = 15 * 10 * 10**18; // 150 Matic Per Captain Candy
+    uint256 private constant PRICE_PREMINT = 0; // Free Mint
 
     uint256 private constant MAX_ELEMENTS = 10000; // 10,000 Captain Candies for Entire Collection.
     uint256 private constant MAX_ELEMENTS_PRESALE = 600; // 1,500 Captain Candies for Pre-Sale.
+    uint256 private constant MAX_ELEMENTS_PREMINT = 30; // 30 Captain Candies for GiveAway.
 
     uint256 private constant MAX_MINT = 20; // Upper Limit per Mint is 20
     uint256 private constant MAX_MINT_PRESALE = 5; // Upper Limit per Mint is 5
+    uint256 private constant MAX_MINT_PREMINT = 28; // Upper Limit per Mint is 28
 
     uint256 private _price;
     uint256 private _maxElements;
@@ -40,8 +43,9 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
 
     string private baseTokenURI;
 
-    address private developerAddress = 0x95b00EA68A1BA40096d825922AFf25570cC5bc69;
-    address private designerAddress = 0xB1A37DE9227eB305eCAD81A6C0a10eBE36C50653;
+    // address private developerAddress = 0x95b00EA68A1BA40096d825922AFf25570cC5bc69;
+    // address private designerAddress = 0xB1A37DE9227eB305eCAD81A6C0a10eBE36C50653;
+    // address private ownerAddress = 0x95b00EA68A1BA40096d825922AFf25570cC5bc69;
 
     event OnePieceCreated(address to, uint256 indexed id);
 
@@ -60,7 +64,9 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
     constructor (string memory baseURI) ERC721("Captain Candy", "CC") {
         setBaseURI(baseURI);
 
-        SALE_OPEN = false;
+        _price = PRICE_PREMINT;
+        _maxElements = MAX_ELEMENTS_PREMINT;
+        _maxMint = MAX_MINT_PREMINT;
     }
 
     function mint(address payable _to, uint256[] memory _ids) public payable saleIsOpen {
@@ -104,7 +110,7 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
         SALE_OPEN = true;
 
         _price = PRICE_PRESALE;
-        _maxElements = MAX_ELEMENTS_PRESALE;
+        _maxElements = MAX_ELEMENTS_PRESALE + MAX_ELEMENTS_PREMINT;
         _maxMint = MAX_MINT_PRESALE;
     }
 
@@ -182,11 +188,12 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
         uint256 balance = address(this).balance;
         require(balance > 0, "WITHDRAW: No balance in contract");
 
-        // Withdraw 4% to developer Address.
-        _widthdraw(developerAddress, balance.mul(4).div(10**2));
-        // Withdraw 3.5% to designer Address.
-        _widthdraw(designerAddress, balance.mul(35).div(10**3));
-        // Withdraw 92.5% to owner Address.
+        // // Withdraw 4% to developer Address.
+        // _widthdraw(developerAddress, balance.mul(4).div(10**2));
+        // // Withdraw 3.5% to designer Address.
+        // _widthdraw(designerAddress, balance.mul(35).div(10**3));
+        // // Withdraw 92.5% to owner Address.
+        // _widthdraw(ownerAddress, address(this).balance);
         _widthdraw(owner(), address(this).balance);
     }
 
