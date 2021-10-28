@@ -1,5 +1,14 @@
 import { useState, useEffect } from "react"
 import { connectWallet } from "helpers/wallet"
+import { mintNFT } from "helpers/interact"
+import { generateInitIds, getDiffArray } from "helpers/index"
+import {
+  getOccupiedIds,
+  getPrice,
+  getMaxSupply,
+  getCurrentMaxSupply,
+  getCurrentMaxMint,
+} from "helpers/contract"
 import DashboardComponent from "components/Dashboard"
 
 const Dashboard = () => {
@@ -21,6 +30,13 @@ const Dashboard = () => {
       if (window.ethereum) {
         onChangeWalletListener()
       }
+
+      let mintMax = await getCurrentMaxMint()
+      setMaxMint(mintMax)
+      let supplyMax = await getMaxSupply()
+      setMaxSupply(supplyMax)
+      let currentSupplyMax = await getCurrentMaxSupply()
+      setMaxCurrentSupply(currentSupplyMax)
     }
 
     initDatas()
@@ -28,6 +44,16 @@ const Dashboard = () => {
 
     return () => window.removeEventListener("resize", getWindowWidth)
   })
+
+  useEffect(() => {
+    const calculatePrice = async () => {
+      let price = await getPrice(Number(mintInputValue))
+
+      setMintTotal(price.toFixed(1))
+    }
+
+    calculatePrice()
+  }, [mintInputValue])
 
   const getWindowWidth = () => {
     const { innerWidth: width } = window
@@ -74,16 +100,47 @@ const Dashboard = () => {
     }
   }
 
+  const getRandomIds = async () => {
+    let customIds = []
+    const baseIds = generateInitIds()
+    const occupied = await getOccupiedIds()
+    const diffIds = getDiffArray(baseIds, occupied)
+
+    while (customIds.length < Number(mintInputValue)) {
+      const id = Math.floor(Math.random() * diffIds.length)
+      const index = diffIds[id]
+      customIds.push(index)
+    }
+
+    return customIds
+  }
+
+  const onMintHandler = async () => {
+    if (!!walletAddress) {
+      setMintLoading(true)
+      const randomIds = await getRandomIds()
+
+      const { success, status } = await mintNFT(
+        walletAddress,
+        setMintLoading,
+        setNewMint,
+        randomIds
+      )
+    }
+  }
+
   return (
     <DashboardComponent
       showSidebar={showSidebar}
       onHandleSidebar={onHandleSidebar}
       mintLoading={mintLoading}
+      mintTotal={mintTotal}
       mintInputValue={mintInputValue}
       increaseMintValue={increaseMintValue}
       decreaseMintValue={decreaseMintValue}
       walletAddress={walletAddress}
       onConnectWalletHandler={onConnectWalletHandler}
+      onMintHandler={onMintHandler}
     />
   )
 }

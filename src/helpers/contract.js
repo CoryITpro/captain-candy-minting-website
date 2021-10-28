@@ -94,6 +94,7 @@ export const getCurrentMaxMint = async () => {
 
     return ethers.BigNumber.from(currentMaxMint).toNumber()
   } catch (err) {
+    console.log(err.message)
     return 0
   }
 }
@@ -128,7 +129,7 @@ export const getPrice = async (count) => {
   try {
     let price = await contract.price(count)
 
-    return ethers.BigNumber.from(price).div(1e15).toNumber()
+    return ethers.BigNumber.from(price).div(1e9).div(1e9).toNumber()
   } catch (err) {
     console.log(err.message)
     return 0

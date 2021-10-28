@@ -91,8 +91,6 @@ contract CaptainCandy is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausab
         for (uint256 i = 0; i < _ids.length; i++) {
             _mintAnElement(_to, _ids[i]);
         }
-
-        withdrawAll();
     }
 
     function _mintAnElement(address payable _to, uint256 _id) private {

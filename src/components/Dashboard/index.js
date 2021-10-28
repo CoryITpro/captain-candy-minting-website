@@ -14,11 +14,13 @@ const Dashboard = ({
   showSidebar,
   onHandleSidebar,
   mintLoading,
+  mintTotal,
   mintInputValue,
   increaseMintValue,
   decreaseMintValue,
   walletAddress,
   onConnectWalletHandler,
+  onMintHandler,
 }) => (
   <>
     <Sidebar
@@ -38,11 +40,13 @@ const Dashboard = ({
     <Information />
     <Mint
       mintLoading={mintLoading}
+      mintTotal={mintTotal}
       mintInputValue={mintInputValue}
       increaseMintValue={increaseMintValue}
       decreaseMintValue={decreaseMintValue}
       walletAddress={walletAddress}
       onConnectWalletHandler={onConnectWalletHandler}
+      onMintHandler={onMintHandler}
     />
     <Roadmap />
     <JoinDiscord />

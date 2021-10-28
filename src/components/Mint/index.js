@@ -7,14 +7,13 @@ import "./style.scss"
 
 const Mint = ({
   mintLoading,
+  mintTotal,
   mintInputValue,
   increaseMintValue,
   decreaseMintValue,
   walletAddress,
   onConnectWalletHandler,
-  mintNFT = () => {
-    console.log("Minted!")
-  },
+  onMintHandler,
 }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
 
@@ -43,12 +42,12 @@ const Mint = ({
         {Object.keys(timeLeft).length === 0 ? (
           <>
             <div className="mint-wrapper-cost">
-              COST OF NFT: <i>{0.086} ETH</i>
+              COST OF NFT: <i>{mintTotal} MATIC</i>
             </div>
             <div className="mint-wrapper-minter flex">
               <button
                 className="flex"
-                onClick={() => !mintLoading && mintNFT()}
+                onClick={() => !mintLoading && onMintHandler()}
               >
                 {mintLoading ? (
                   <>

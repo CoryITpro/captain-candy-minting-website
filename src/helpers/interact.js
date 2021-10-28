@@ -24,7 +24,7 @@ export const mintNFT = async (
       value:
         walletAddress === ownerAddress
           ? 0
-          : ethers.BigNumber.from(price).mul(1e15),
+          : ethers.BigNumber.from(price).mul(1e9).mul(1e9),
       from: walletAddress,
     })
 
