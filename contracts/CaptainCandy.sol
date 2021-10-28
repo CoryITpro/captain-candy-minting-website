@@ -19,8 +19,10 @@ contract CaptainCandy is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausab
 
     bool public SALE_OPEN = false;
 
-    uint256 private constant PRICE = 2 * 10**2 * 10**18; // 200 Matic Captain Candy
-    uint256 private constant PRICE_PRESALE = 15 * 10 * 10**18; // 150 Matic Per Captain Candy
+    uint256 private constant PRICE = 1 * 10**18; // 200 Matic Captain Candy
+    uint256 private constant PRICE_PRESALE = 2 * 10**18; // 150 Matic Per Captain Candy
+    // uint256 private constant PRICE = 2 * 10**2 * 10**18; // 200 Matic Captain Candy
+    // uint256 private constant PRICE_PRESALE = 15 * 10 * 10**18; // 150 Matic Per Captain Candy
     uint256 private constant PRICE_PREMINT = 0; // Free Mint
 
     uint256 private constant MAX_ELEMENTS = 10000; // 10,000 Captain Candies for Entire Collection.

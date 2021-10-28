@@ -4,27 +4,14 @@ const privateKeys = process.env.PRIVATE_KEYS || ""
 
 module.exports = {
   networks: {
-    mainnet: {
+    polygon: {
       provider: () => {
         return new HDWalletProvider(
           privateKeys,
-          `https://polygon-mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`
+          `wss://rpc-mainnet.maticvigil.com/ws/v1/${process.env.INFURA_API_KEY}`
         )
       },
-      network_id: 1, // Ropsten's id
-      gas: 5500000, // Ropsten has a lower block limit than mainnet
-      confirmations: 2, // # of confs to wait between deployments. (default: 0)
-      timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
-      skipDryRun: false, // Skip dry run before migrations? (default: false for public nets )
-    },
-    rinkeby: {
-      provider: () => {
-        return new HDWalletProvider(
-          privateKeys,
-          `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`
-        )
-      },
-      network_id: 4, // Ropsten's id
+      network_id: 137, // Ropsten's id
       gas: 5500000, // Ropsten has a lower block limit than mainnet
       confirmations: 2, // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
@@ -34,10 +21,10 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(
           privateKeys,
-          `https://polygon-mumbai.infura.io/v3/${process.env.INFURA_API_KEY}`
+          `wss://rpc-mumbai.maticvigil.com/ws/v1/${process.env.INFURA_API_KEY}`
         )
       },
-      network_id: 4, // Ropsten's id
+      network_id: 80001, // Ropsten's id
       gas: 5500000, // Ropsten has a lower block limit than mainnet
       confirmations: 2, // # of confs to wait between deployments. (default: 0)
       timeoutBlocks: 200, // # of blocks before a deployment times out  (minimum/default: 50)
@@ -64,6 +51,6 @@ module.exports = {
   contracts_build_directory: "./src/abis",
   plugins: ["truffle-plugin-verify"],
   api_keys: {
-    etherscan: process.env.ETHERSCAN_API_KEY,
+    polygonscan: process.env.POLYGONSCAN_API_KEY,
   },
 }

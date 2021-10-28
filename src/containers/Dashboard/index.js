@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { connectWallet } from "helpers/wallet"
+import { connectWallet, addPolygonChain } from "helpers/wallet"
 import { mintNFT } from "helpers/interact"
 import { generateInitIds, getDiffArray } from "helpers/index"
 import {
@@ -16,6 +16,7 @@ const Dashboard = () => {
   const [showSidebar, setShowSidebar] = useState(false)
 
   const [walletAddress, setWalletAddress] = useState("")
+  const [status, setStatus] = useState("")
 
   const [maxMint, setMaxMint] = useState(0)
   const [maxSupply, setMaxSupply] = useState(0)
@@ -71,6 +72,10 @@ const Dashboard = () => {
     const walletResponse = await connectWallet()
 
     setWalletAddress(walletResponse.address)
+
+    if (walletResponse.status === "Adding") {
+      await addPolygonChain()
+    }
   }
 
   const onChangeWalletListener = () => {
@@ -83,9 +88,9 @@ const Dashboard = () => {
         }
       })
 
-      window.ethereum.on("chainChanged", (chainId) => {
-        onConnectWalletHandler()
-      })
+      // window.ethereum.on("chainChanged", (chainId) => {
+      //   onConnectWalletHandler()
+      // })
     }
   }
 

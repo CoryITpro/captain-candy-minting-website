@@ -34,7 +34,7 @@ export const connectWallet = async () => {
 
         return {
           address: "",
-          status: "Was on the other chain",
+          status: "Adding",
         }
       }
     } catch (err) {
@@ -49,6 +49,33 @@ export const connectWallet = async () => {
     return {
       address: "",
       status: "Can't find web3 provider",
+    }
+  }
+}
+
+export const addPolygonChain = async () => {
+  const provider = await detectEthereumProvider()
+
+  if (provider) {
+    try {
+      await provider.request({
+        method: "wallet_addEthereumChain",
+        params: [
+          {
+            chainId: "0x13881",
+            chainName: "Mumbai TestNet",
+            nativeCurrency: {
+              name: "Matic",
+              symbol: "MATIC",
+              decimals: 18,
+            },
+            rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
+            blockExplorerUrls: ["https://mumbai-explorer.matic.today/"],
+          },
+        ],
+      })
+    } catch (err) {
+      console.log("Chain Add Error")
     }
   }
 }
