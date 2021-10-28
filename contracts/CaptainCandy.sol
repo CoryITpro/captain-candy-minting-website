@@ -10,7 +10,7 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "./ERC721Pausable.sol";
 
-contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable {
+contract CaptainCandy is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable {
 
     using SafeMath for uint256;
     using Counters for Counters.Counter;
@@ -24,12 +24,12 @@ contract Collection is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausable
     uint256 private constant PRICE_PREMINT = 0; // Free Mint
 
     uint256 private constant MAX_ELEMENTS = 10000; // 10,000 Captain Candies for Entire Collection.
-    uint256 private constant MAX_ELEMENTS_PRESALE = 600; // 1,500 Captain Candies for Pre-Sale.
-    uint256 private constant MAX_ELEMENTS_PREMINT = 30; // 30 Captain Candies for GiveAway.
+    uint256 private constant MAX_ELEMENTS_PRESALE = 1000; // 1,000 Captain Candies for Pre-Sale.
+    uint256 private constant MAX_ELEMENTS_PREMINT = 100; // 100 Captain Candies for GiveAway.
 
     uint256 private constant MAX_MINT = 20; // Upper Limit per Mint is 20
     uint256 private constant MAX_MINT_PRESALE = 5; // Upper Limit per Mint is 5
-    uint256 private constant MAX_MINT_PREMINT = 28; // Upper Limit per Mint is 28
+    uint256 private constant MAX_MINT_PREMINT = 100; // Upper Limit per Mint is 28
 
     uint256 private _price;
     uint256 private _maxElements;

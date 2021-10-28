@@ -12,7 +12,7 @@ export const mintNFT = async (
   let ownerAddress = await getOwnerAddress()
   let price = await getPrice(randomIds.length)
 
-  contract.on("NippleverseCreated(address, uint256)", (to, newId) => {
+  contract.on("OnePieceCreated(address, uint256)", (to, newId) => {
     const address = ethers.utils.getAddress(to)
     const newMintId = ethers.BigNumber.from(newId).toNumber()
 

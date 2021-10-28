@@ -1,3 +1,4 @@
+import Sidebar from "components/Sidebar"
 import Navbar from "components/Navbar"
 import Hero from "components/Hero"
 import JoinDiscord from "components/JoinDiscord"
@@ -10,6 +11,8 @@ import Footer from "components/Footer"
 import "./style.scss"
 
 const Dashboard = ({
+  showSidebar,
+  onHandleSidebar,
   mintLoading,
   mintInputValue,
   increaseMintValue,
@@ -18,7 +21,14 @@ const Dashboard = ({
   onConnectWalletHandler,
 }) => (
   <>
+    <Sidebar
+      showSidebar={showSidebar}
+      onHandleSidebar={onHandleSidebar}
+      walletAddress={walletAddress}
+      onConnectWalletHandler={onConnectWalletHandler}
+    />
     <Navbar
+      onHandleSidebar={onHandleSidebar}
       walletAddress={walletAddress}
       onConnectWalletHandler={onConnectWalletHandler}
     />

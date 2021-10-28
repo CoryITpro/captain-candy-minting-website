@@ -5,7 +5,7 @@ import { SuperkrassLogo } from "resources/Images"
 import { LINKS } from "constants/links"
 import "./style.scss"
 
-const Navbar = ({ walletAddress, onConnectWalletHandler }) => (
+const Navbar = ({ onHandleSidebar, walletAddress, onConnectWalletHandler }) => (
   <div className="navbar container flex">
     <div className="navbar-logo">
       <img src={SuperkrassLogo} alt="logo" />
@@ -34,7 +34,7 @@ const Navbar = ({ walletAddress, onConnectWalletHandler }) => (
       </button>
     </div>
     <div className="navbar-collapse">
-      <button>
+      <button onClick={onHandleSidebar}>
         <FontAwesomeIcon icon={faBars} />
       </button>
     </div>

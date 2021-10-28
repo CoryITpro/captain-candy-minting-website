@@ -4,6 +4,7 @@ import DashboardComponent from "components/Dashboard"
 
 const Dashboard = () => {
   const [mintLoading, setMintLoading] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false)
 
   const [walletAddress, setWalletAddress] = useState("")
 
@@ -23,7 +24,22 @@ const Dashboard = () => {
     }
 
     initDatas()
+    window.addEventListener("resize", getWindowWidth)
+
+    return () => window.removeEventListener("resize", getWindowWidth)
   })
+
+  const getWindowWidth = () => {
+    const { innerWidth: width } = window
+
+    if (width > 1024) {
+      setShowSidebar(false)
+    }
+  }
+
+  const onHandleSidebar = () => {
+    setShowSidebar(!showSidebar)
+  }
 
   const onConnectWalletHandler = async () => {
     const walletResponse = await connectWallet()
@@ -60,6 +76,8 @@ const Dashboard = () => {
 
   return (
     <DashboardComponent
+      showSidebar={showSidebar}
+      onHandleSidebar={onHandleSidebar}
       mintLoading={mintLoading}
       mintInputValue={mintInputValue}
       increaseMintValue={increaseMintValue}

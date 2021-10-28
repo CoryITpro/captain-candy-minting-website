@@ -13,6 +13,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "@truffle/hdwallet-provider": "^1.5.1",
     "dotenv": "^10.0.0",
     "ethers": "^5.4.7",
     "node-sass": "^6.0.1",

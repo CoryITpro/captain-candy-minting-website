@@ -1,7 +1,7 @@
 require("dotenv").config()
-const CryptoAthletes = artifacts.require("CryptoAthletes")
+const CaptainCandy = artifacts.require("CaptainCandy")
 const baseURI = process.env.BASE_URI
 
 module.exports = function (deployer) {
-  deployer.deploy(CryptoAthletes, baseURI)
+  deployer.deploy(CaptainCandy, baseURI)
 }

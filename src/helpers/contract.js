@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import contractABI from "abis/Nippleverse.json"
+import contractABI from "abis/CaptainCandy.json"
 import { ENVS } from "configurations/ethereum"
 
 // Contract can be used to write Contract

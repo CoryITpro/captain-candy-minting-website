@@ -3,10 +3,10 @@ import { Link } from "react-scroll"
 import "./style.scss"
 
 const Hero = () => (
-  <div className="hero container flex">
-    <div className="hero-caption">
-      <div className="hero-caption-title flex">
-        <img src={CaptainCandyFaceRadial} alt="hero title" />
+  <div className="home container flex">
+    <div className="home-caption">
+      <div className="home-caption-title flex">
+        <img src={CaptainCandyFaceRadial} alt="home title" />
         <span>CAPTAIN CANDY</span>
       </div>
       <p>
@@ -16,9 +16,9 @@ const Hero = () => (
       <p>
         Each Captain is completely unique, created using over 100 individual
         features.
-        {/* JOIN OUR DISCORD TO GET NOTIFIED ABOUT LAUNCH DATES. */}
       </p>
-      <div className="hero-caption-buttons flex">
+      <p>JOIN OUR DISCORD TO GET NOTIFIED ABOUT LAUNCH DATES.</p>
+      <div className="home-caption-buttons flex">
         <button>READ MORE</button>
         <button>
           <Link
@@ -29,7 +29,7 @@ const Hero = () => (
             offset={0}
             duration={500}
           >
-            MINT NOw
+            MINT NOW
           </Link>
         </button>
       </div>
