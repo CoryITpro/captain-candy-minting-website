@@ -44,7 +44,7 @@ const Dashboard = () => {
     window.addEventListener("resize", getWindowWidth)
 
     return () => window.removeEventListener("resize", getWindowWidth)
-  })
+  }, [])
 
   useEffect(() => {
     const calculatePrice = async () => {

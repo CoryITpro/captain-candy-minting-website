@@ -19,10 +19,8 @@ contract CaptainCandy is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausab
 
     bool public SALE_OPEN = false;
 
-    uint256 private constant PRICE = 1 * 10**18; // 200 Matic Captain Candy
-    uint256 private constant PRICE_PRESALE = 2 * 10**18; // 150 Matic Per Captain Candy
-    // uint256 private constant PRICE = 2 * 10**2 * 10**18; // 200 Matic Captain Candy
-    // uint256 private constant PRICE_PRESALE = 15 * 10 * 10**18; // 150 Matic Per Captain Candy
+    uint256 private constant PRICE = 2 * 10**2 * 10**18; // 200 Matic Captain Candy
+    uint256 private constant PRICE_PRESALE = 15 * 10 * 10**18; // 150 Matic Per Captain Candy
     uint256 private constant PRICE_PREMINT = 0; // Free Mint
 
     uint256 private constant MAX_ELEMENTS = 10000; // 10,000 Captain Candies for Entire Collection.
@@ -45,9 +43,9 @@ contract CaptainCandy is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausab
 
     string private baseTokenURI;
 
-    // address private developerAddress = 0x95b00EA68A1BA40096d825922AFf25570cC5bc69;
-    // address private designerAddress = 0xB1A37DE9227eB305eCAD81A6C0a10eBE36C50653;
-    // address private ownerAddress = 0x95b00EA68A1BA40096d825922AFf25570cC5bc69;
+    address private developerAddress = 0xDEA5e36DC33A3aed5CA275E463eDd283F680D1c6;
+    address private designerAddress = 0xB1A37DE9227eB305eCAD81A6C0a10eBE36C50653;
+    address private ownerAddress = 0xe3f91D76F7C24048d080d392e0587439F26BaE71;
 
     event OnePieceCreated(address to, uint256 indexed id);
 
@@ -188,13 +186,12 @@ contract CaptainCandy is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausab
         uint256 balance = address(this).balance;
         require(balance > 0, "WITHDRAW: No balance in contract");
 
-        // // Withdraw 4% to developer Address.
-        // _widthdraw(developerAddress, balance.mul(4).div(10**2));
-        // // Withdraw 3.5% to designer Address.
-        // _widthdraw(designerAddress, balance.mul(35).div(10**3));
-        // // Withdraw 92.5% to owner Address.
-        // _widthdraw(ownerAddress, address(this).balance);
-        _widthdraw(owner(), address(this).balance);
+        // Withdraw 4% to developer Address.
+        _widthdraw(developerAddress, balance.mul(4).div(10**2));
+        // Withdraw 3.5% to designer Address.
+        _widthdraw(designerAddress, balance.mul(35).div(10**3));
+        // Withdraw 92.5% to owner Address.
+        _widthdraw(ownerAddress, address(this).balance);
     }
 
     function _widthdraw(address _address, uint256 _amount) private {
