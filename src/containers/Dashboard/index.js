@@ -10,6 +10,7 @@ import {
   getCurrentMaxMint,
 } from "helpers/contract"
 import DashboardComponent from "components/Dashboard"
+import { ToastContainer, toast } from "react-toastify"
 
 const Dashboard = () => {
   const [mintLoading, setMintLoading] = useState(false)
