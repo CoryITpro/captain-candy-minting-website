@@ -22,7 +22,7 @@ const JoinDiscord = () => (
       </div>
       <div className="discord-wrapper-join flex">
         <a
-          href="https://discord.gg/FGf8n8naQB"
+          href="https://discord.gg/5DwNcK9gQ9"
           target="_blank"
           rel="noreferrer"
         >

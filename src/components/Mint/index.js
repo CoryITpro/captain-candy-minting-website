@@ -39,7 +39,28 @@ const Mint = ({
           Nobody knows which Captain Candy you will get, not even the SuperKrass
           Team
         </p>
-        {Object.keys(timeLeft).length === 0 ? (
+        <span>
+          Minting Date will be announced on our official discord channel
+        </span>
+        <div className="mint-wrapper-timer">
+          <div className="mint-wrapper-timer-item flex flex-column">
+            <span>??</span>
+            <span>Days</span>
+          </div>
+          <div className="mint-wrapper-timer-item flex flex-column">
+            <span>??</span>
+            <span>Hours</span>
+          </div>
+          <div className="mint-wrapper-timer-item flex flex-column">
+            <span>??</span>
+            <span>Minutes</span>
+          </div>
+          <div className="mint-wrapper-timer-item flex flex-column">
+            <span>??</span>
+            <span>Seconds</span>
+          </div>
+        </div>
+        {/* {Object.keys(timeLeft).length === 0 ? (
           <>
             <div className="mint-wrapper-cost">
               COST OF NFT: <i>{mintTotal} MATIC</i>
@@ -84,8 +105,8 @@ const Mint = ({
               <span>Seconds</span>
             </div>
           </div>
-        )}
-        {walletAddress === "" && (
+        )} */}
+        {/* {walletAddress === "" && (
           <div className="mint-wrapper-connect flex flex-column">
             <p>
               YOU NEED TO CONNECT YOUR WALLET OR YOU WILL NOT BE ABLE TO MINT.
@@ -93,7 +114,7 @@ const Mint = ({
             </p>
             <button onClick={onConnectWalletHandler}>CONNECT WALLET</button>
           </div>
-        )}
+        )} */}
       </div>
       <div className="mint-decoration flex">
         <img src={CaptainCandyInnerShadow} alt="inner" />

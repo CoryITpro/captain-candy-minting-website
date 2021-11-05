@@ -43,6 +43,16 @@
       }
     }
 
+    & > span {
+      color: $blue;
+      font-size: 24px;
+      font-family: "Aktiv Grotesk Cd";
+
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+    }
+
     &-cost {
       font-family: "Aktiv Grotesk Cd";
       margin-bottom: 24px;
