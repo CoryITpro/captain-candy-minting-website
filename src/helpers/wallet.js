@@ -62,15 +62,15 @@ export const addPolygonChain = async () => {
         method: "wallet_addEthereumChain",
         params: [
           {
-            chainId: "0x13881",
-            chainName: "Mumbai TestNet",
+            chainId: "0x89",
+            chainName: "Matic Mainnet",
             nativeCurrency: {
               name: "Matic",
               symbol: "MATIC",
               decimals: 18,
             },
-            rpcUrls: ["https://rpc-mumbai.maticvigil.com/"],
-            blockExplorerUrls: ["https://mumbai-explorer.matic.today/"],
+            rpcUrls: ["https://rpc-mainnet.maticvigil.com/"],
+            blockExplorerUrls: ["https://polygonscan.com/"],
           },
         ],
       })

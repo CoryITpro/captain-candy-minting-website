@@ -57,6 +57,14 @@ const Dashboard = () => {
     calculatePrice()
   }, [mintInputValue])
 
+  useEffect(() => {
+    if (status !== "") {
+      notify()
+    }
+  }, [status])
+
+  const notify = () => toast(status)
+
   const getWindowWidth = () => {
     const { innerWidth: width } = window
 
@@ -132,22 +140,27 @@ const Dashboard = () => {
         setNewMint,
         randomIds
       )
+
+      setStatus(status)
     }
   }
 
   return (
-    <DashboardComponent
-      showSidebar={showSidebar}
-      onHandleSidebar={onHandleSidebar}
-      mintLoading={mintLoading}
-      mintTotal={mintTotal}
-      mintInputValue={mintInputValue}
-      increaseMintValue={increaseMintValue}
-      decreaseMintValue={decreaseMintValue}
-      walletAddress={walletAddress}
-      onConnectWalletHandler={onConnectWalletHandler}
-      onMintHandler={onMintHandler}
-    />
+    <>
+      <ToastContainer />
+      <DashboardComponent
+        showSidebar={showSidebar}
+        onHandleSidebar={onHandleSidebar}
+        mintLoading={mintLoading}
+        mintTotal={mintTotal}
+        mintInputValue={mintInputValue}
+        increaseMintValue={increaseMintValue}
+        decreaseMintValue={decreaseMintValue}
+        walletAddress={walletAddress}
+        onConnectWalletHandler={onConnectWalletHandler}
+        onMintHandler={onMintHandler}
+      />
+    </>
   )
 }
 

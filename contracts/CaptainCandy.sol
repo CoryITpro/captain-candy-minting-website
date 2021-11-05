@@ -51,7 +51,7 @@ contract CaptainCandy is ERC721Enumerable, Ownable, ERC721Burnable, ERC721Pausab
 
     modifier saleIsOpen {
         if (_msgSender() != owner()) {
-            require(SALE_OPEN == true, "SALES: Please wait a big longer before buying Captain Candy ;)");
+            require(SALE_OPEN == true, "SALES: Please wait a bit longer before buying Captain Candy ;)");
         }
         require(_totalSupply() <= MAX_ELEMENTS, "SALES: Sale end");
 

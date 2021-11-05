@@ -45,9 +45,16 @@ export const mintNFT = async (
   } catch (err) {
     setMintLoading(false)
 
-    return {
-      success: false,
-      status: err.message,
+    if (err.data.code === -32000) {
+      return {
+        success: false,
+        status: "Insufficent funds for gas",
+      }
+    } else {
+      return {
+        success: false,
+        status: "Please try again",
+      }
     }
   }
 }
