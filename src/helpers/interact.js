@@ -34,7 +34,7 @@ export const mintNFT = async (
     if (res.transactionHash) {
       return {
         success: true,
-        status: `Successfully minted ${randomIds.length} Crypty Athletes.`,
+        status: `Successfully minted ${randomIds.length} Captain Candies.`,
       }
     } else {
       return {
