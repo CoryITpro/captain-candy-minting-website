@@ -53,7 +53,7 @@ export const mintNFT = async (
     } else {
       return {
         success: false,
-        status: "Please try again",
+        status: "Please contact development team",
       }
     }
   }
