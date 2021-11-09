@@ -1,6 +1,10 @@
 import { SuperkrassLogo } from "resources/Images"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faDiscord, faTwitter } from "@fortawesome/free-brands-svg-icons"
+import {
+  faDiscord,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons"
 import "./style.scss"
 
 const Footer = () => (
@@ -17,6 +21,13 @@ const Footer = () => (
       </a>
       <a href="https://twitter.com/krassnft" target="_blank" rel="noreferrer">
         <FontAwesomeIcon icon={faTwitter} />
+      </a>
+      <a
+        href="https://instagram.com/captaincandynft"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FontAwesomeIcon icon={faInstagram} />
       </a>
     </div>
   </div>
